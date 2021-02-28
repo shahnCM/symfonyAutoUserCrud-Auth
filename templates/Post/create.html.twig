@@ -1,0 +1,48 @@
+{% extends ('base.html.twig') %}
+
+{% block title %} Blog Posts {% endblock %}
+
+{% block body %} 
+
+<div class="go-to-back-section">
+    <div class="pe-3">
+        <a 
+            class="btn btn-sm btn-success shadow-sm float-end" 
+            href="{{ path( 'post' ) }}">
+                Back to Posts
+        </a>
+    </div>
+</div>
+
+<div class="blog-post-section">
+
+    <div class="card border-0" style="width: 100%">
+        <div class="card-body ps-0 pr-0">
+            
+            <h5 class="card-title display-4">Create New Post</h5>
+
+            <hr/>
+
+            <form>
+
+                <div class="mb-3">
+                    <label class="form-label">Post Title</label>
+                    <input type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Post Body</label>
+                    <input type="text" class="form-control">
+                    <textarea class="form-control" > </textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Create</button>
+
+            </form>            
+
+        </div>
+    </div>        
+
+</div>
+
+{% endblock %}

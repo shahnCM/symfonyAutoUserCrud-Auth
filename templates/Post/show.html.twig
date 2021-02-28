@@ -1,0 +1,62 @@
+{% extends ('base.html.twig') %}
+
+{% block title %} Blog Posts {% endblock %}
+
+{% block body %} 
+
+<div class="go-to-back-section">
+    <div class="pe-3">
+        <a 
+            class="btn btn-sm btn-success shadow-sm float-end" 
+            href="{{ path( 'post') }}">
+                Back to Posts
+        </a>
+    </div>
+</div>
+
+<div class="blog-post-section">
+
+    <div class="card border-0" style="width: 100%">
+        <div class="card-body ps-0 pr-0">
+            
+            <h5 class="card-title display-4">{{post.title}}</h5>
+
+            <hr/>
+
+            <div class="ps-5"> 
+
+                <p class="card-text justify-text pb-5">
+                    {{post.body}}
+                </p>
+
+                <form 
+                    method="POST" 
+                    action="{{ path('post.delete', { id : post.id }) }}"
+                    class="row row-cols-sm-auto g-1 align-items-end">
+                    
+                    <div class="col-3">
+                        <a 
+                            class="btn btn-sm btn-warning shadow-sm" 
+                            href="{{ path( 'post.edit', { id : post.id }) }}">
+                                Edit
+                        </a>
+                    </div> 
+
+                    <div class="col-3">
+                        <button 
+                            type="submit" 
+                            class="btn btn-sm btn-danger">
+                                Delete
+                        </button>        
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>        
+
+</div>
+
+{% endblock %}
